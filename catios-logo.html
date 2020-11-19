@@ -1,0 +1,158 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root{
+            --outer-color: #000;
+            --inner-color: #fff;
+        }
+        .octagonWrap-mini{
+            width:250px;
+            height:250px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            margin-top: 75px;
+            margin-left: 75px;
+        }
+        .octagonWrap-mini .octagon{
+            background-color: var(--inner-color);
+            border-color: var(--inner-color);
+        }
+        .octagonWrap{
+            width:400px;
+            height:400px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .octagon{
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            overflow: hidden;
+            transform: rotate(45deg);
+            background: var(--outer-color);
+        }
+        .octagon:before{
+            position: absolute;
+            top: -3px; right: -3px; bottom: -3px; left: -3px;
+            transform: rotate(45deg);
+            content: '';
+            border: inherit;
+        }
+        .square{
+            width: 80px;
+            height: 100px;
+            background-color: var(--outer-color);
+            position: absolute;
+            bottom: 75px;
+            left: 0px;
+        }
+        .trapezoid{
+        	border-bottom: 180px solid var(--inner-color);
+        	border-left: 40px solid transparent;
+        	border-right: 40px solid transparent;
+        	height: 0;
+        	width: 100px;
+            transform: rotate(-45deg);
+            margin-top: 215px;
+            margin-left: 210px;
+        }
+        .sybil{
+            z-index: 100000000000000000000000;
+            color: #000;
+            position: absolute;
+            top: 215px;
+            width: 100%;
+            height: 300px;
+        }
+        .sybil .right, .sybil .left{
+            width: 39%;
+        }
+        .sybil .right{
+            float: right;
+            margin-right: 20px;
+        }
+        .sybil .right hr, .sybil .left hr{
+            display: block;
+            width: 130px;
+            margin: 13px 0;
+            color: #aaa;
+        }
+        .sybil .right hr:nth-last-of-type(), .sybil .left hr:nth-last-of-type(){
+            transform: rotate(12deg);
+        }
+        .sybil .right hr{
+            float: left;
+        }
+        .sybil .left{
+            float: left;
+            margin-left: 20px;
+        }
+        .sybil .left hr{
+            float: right;
+        }
+        .sybil .left-first{
+            transform: rotate(15deg);
+        }
+        .sybil .left-last{
+            transform: rotate(-15deg);
+        }
+        .sybil .right-first{
+            transform: rotate(-15deg);
+        }
+        .sybil .right-last{
+            transform: rotate(15deg);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script>
+    function takeshot(){
+        let div = document.getElementById('photo');
+        html2canvas(div).then( function (canvas){
+            document.getElementById('output').appendChild(canvas);
+        });
+    }
+    </script>
+</head>
+<body>
+    <center>
+    <div class="main" style="width: 400px;">
+        <div class='octagonWrap' id="photo">
+            <div class="sybil">
+                <div class="left">
+                    <hr class="left-first" /><br />
+                    <hr /><br />
+                    <hr class="left-last" /><br />
+                </div>
+                <div class="right">
+                    <hr class="right-first" /><br />
+                    <hr /><br />
+                    <hr class="right-last" /><br />
+                </div>
+            </div>
+            <div class='octagon'>
+                <div class='octagonWrap-mini'>
+                    <div class='octagon'>
+                        <div class="square"></div>
+                    </div>
+                </div>
+                <div class="trapezoid"></div>
+            </div>
+        </div>
+        <center style="padding: 30px;">
+            <h3>Catios</h3>
+            <h4>By <a href="https://github.com/parsampsh">parsa shahmaleki</a></h4>
+            <button onclick="takeshot()">Output</button>
+            <br />
+            <br />
+            <br />
+            <div id="output"></div>
+        </center>
+    </div>
+    </center>
+</body>
+</html>
