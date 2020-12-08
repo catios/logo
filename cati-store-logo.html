@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        body{
+            background-color: #555;
+        }
+    </style>
     <script src="html2canvas.min.js"></script>
     <script>
     function takeshot(){
@@ -16,9 +21,9 @@
     </script>
 </head>
 <body>
-    <center>
-    <div class="main" style="width: 400px;">
-        <div class='octagonWrap' id="photo">
+    <center id="photo" style="background-image: url('bag.png'); background-repeat: no-repeat; background-position: center; height: 520px; width: 460px; background-color: #555;">
+    <div class="main" style="width: 400px; transform: scale(0.7) translate(0, 300px)">
+        <div class='octagonWrap'>
             <div class="sybil">
                 <div class="left">
                     <hr class="left-first" /><br />
@@ -40,8 +45,10 @@
                 <div class="trapezoid"></div>
             </div>
         </div>
-        <center style="padding: 30px;">
-            <h3>Catios</h3>
+    </div>
+    </center>
+    <center style="padding: 30px;">
+            <h3>Cati store logo</h3>
             <h4>By <a href="https://github.com/parsampsh">parsa shahmaleki</a></h4>
             <button onclick="takeshot()">Output</button>
             <br />
@@ -49,7 +56,5 @@
             <br />
             <div id="output"></div>
         </center>
-    </div>
-    </center>
 </body>
 </html>
